@@ -2,11 +2,12 @@
 set script_dir [file dirname [file normalize [info script]]]
 
 # name of your project, should also match the name of the top module
-set ::env(DESIGN_NAME) project_name
+set ::env(DESIGN_NAME) wrapped_hoggephase_project
 
 # add your source files here
 set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/wrapper.v \
-    $::env(DESIGN_DIR)/other source files.v"
+    $::env(DESIGN_DIR)/hpcore/hoggephase.v \
+    $::env(DESIGN_DIR)/hpcore/wb_hp.v"
 
 # target density, change this if you can't get your design to fit
 set ::env(PL_TARGET_DENSITY) 0.4
@@ -35,3 +36,20 @@ set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 
 # turn off CVC as we have multiple power domains
 set ::env(RUN_CVC) 0
+
+# ******************************************************************
+# ** Code for shimming SDC file to allow for 2nd clock constraint **
+# ******************************************************************
+# clock2 period is ns
+set ::env(CLOCK2_PERIOD) "5"
+set ::env(CLOCK2_PORT) "user_clock2"
+
+set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
+set ::env(BASE_SDC_FILE_SHIM) "$::env(DESIGN_DIR)/shim.sdc"
+
+# for some reason this gets sourced multiple times so we need to grab original base.sdc only when it doesn't match our shim
+if {! [string match $::env(BASE_SDC_FILE) $::env(BASE_SDC_FILE_SHIM)]} {
+    set ::env(BASE_SDC_FILE_OLD) $::env(BASE_SDC_FILE)
+}
+
+set ::env(BASE_SDC_FILE) $::env(BASE_SDC_FILE_SHIM)

@@ -1,0 +1,3 @@
+[submodule "hpcore"]
+	path = hpcore
+	url = https://h1kari@github.com/h1kari/hpcore

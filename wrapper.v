@@ -3,7 +3,7 @@
     `define MPRJ_IO_PADS 38    
 `endif
 // update this to the name of your module
-module wrapped_project(
+module wrapped_hoggephase_project(
 `ifdef USE_POWER_PINS
     inout vdda1,	// User area 1 3.3V supply
     inout vdda2,	// User area 2 3.3V supply
@@ -80,6 +80,34 @@ module wrapped_project(
     // Instantiate your module here, 
     // connecting what you need of the above signals. 
     // Use the buffered outputs for your module's outputs.
+
+    // set all LA inputs to 0 if we aren't active and aren't enabled
+    wire [31:0] buf_la_data_in = active ? la_data_in : {32{1'b0}};
+
+    wb_hp mprj (
+        .wb_clk_i(wb_clk_i),
+        .user_clock2(user_clock2),
+
+        // hold in reset if we aren't active
+        .reset(active ? wb_rst_i | la_data_in[0] | io_in[0] : 1'b1),
+
+        // MGMT SoC Wishbone Slave
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_we_i  (wbs_we_i),
+        .wbs_adr_i (wbs_adr_i),
+        .wbs_dat_o (wbs_dat_i),
+        .wbs_ack_o (wbs_ack_o),
+        .wbs_dat_o (wbs_dat_o),
+
+        // IO Pads
+        .gpio_i    (io_in | buf_la_data_in[19:4]),
+        .gpio_o    (buf_io_out),
+        .gpio_enb  () //buf_io_oeb) -- user module drives all pins as output
+    );
+
+    assign buf_la_data_out[19:4] = buf_io_out[15:0];
+
 
 endmodule 
 `default_nettype wire
