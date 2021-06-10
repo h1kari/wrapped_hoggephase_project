@@ -37,6 +37,9 @@ set ::env(FP_PIN_ORDER_CFG) $script_dir/pin_order.cfg
 # turn off CVC as we have multiple power domains
 set ::env(RUN_CVC) 0
 
+# last minute tristate fix
+set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
+
 # ******************************************************************
 # ** Code for shimming SDC file to allow for 2nd clock constraint **
 # ******************************************************************
@@ -44,7 +47,6 @@ set ::env(RUN_CVC) 0
 set ::env(CLOCK2_PERIOD) "5"
 set ::env(CLOCK2_PORT) "user_clock2"
 
-set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
 set ::env(BASE_SDC_FILE_SHIM) "$::env(DESIGN_DIR)/shim.sdc"
 
 # for some reason this gets sourced multiple times so we need to grab original base.sdc only when it doesn't match our shim
