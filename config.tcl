@@ -44,7 +44,7 @@ set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
 # ** Code for shimming SDC file to allow for 2nd clock constraint **
 # ******************************************************************
 # clock2 period is ns
-set ::env(CLOCK2_PERIOD) "5"
+set ::env(CLOCK2_PERIOD) "10"
 set ::env(CLOCK2_PORT) "user_clock2"
 
 set ::env(BASE_SDC_FILE_SHIM) "$::env(DESIGN_DIR)/shim.sdc"

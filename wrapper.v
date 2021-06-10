@@ -96,9 +96,9 @@ module wrapped_hoggephase_project(
         .wbs_stb_i (wbs_stb_i),
         .wbs_we_i  (wbs_we_i),
         .wbs_adr_i (wbs_adr_i),
-        .wbs_dat_o (wbs_dat_i),
-        .wbs_ack_o (wbs_ack_o),
-        .wbs_dat_o (wbs_dat_o),
+        .wbs_dat_i (wbs_dat_i),
+        .wbs_ack_o (buf_wbs_ack_o),
+        .wbs_dat_o (buf_wbs_dat_o),
 
         // IO Pads
         .gpio_i    (io_in | buf_la_data_in[19:4]),
