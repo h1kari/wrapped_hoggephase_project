@@ -3,9 +3,9 @@
 project: 
   title: "hoggephase"
   description: "Hogge Phase EMFI/BBI Glitch Detector"
-  picture: docs/empty.png
+  picture: docs/hpcore.png
   author: "David Hulton"
-  github: https://github.com/h1kari/hoggephase
+  github: https://github.com/h1kari/wrapped_hoggephase_project
   license: LICENSE
 
 # test within caravel
