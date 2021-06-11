@@ -931,16 +931,16 @@ MACRO wrapped_hoggephase_project
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met2 ;
-        RECT 297.250 0.000 297.530 4.000 ;
+      LAYER met3 ;
+        RECT 296.000 297.880 300.000 298.480 ;
     END
   END irq[0]
   PIN irq[1]
     DIRECTION OUTPUT TRISTATE ;
     USE SIGNAL ;
     PORT
-      LAYER met3 ;
-        RECT 0.000 297.200 4.000 297.800 ;
+      LAYER met2 ;
+        RECT 297.250 0.000 297.530 4.000 ;
     END
   END irq[1]
   PIN irq[2]
@@ -948,7 +948,7 @@ MACRO wrapped_hoggephase_project
     USE SIGNAL ;
     PORT
       LAYER met3 ;
-        RECT 296.000 297.880 300.000 298.480 ;
+        RECT 0.000 297.200 4.000 297.800 ;
     END
   END irq[2]
   PIN la_data_in[0]
@@ -2705,9 +2705,9 @@ MACRO wrapped_hoggephase_project
   END vssa2
   OBS
       LAYER li1 ;
-        RECT 5.520 10.795 294.400 288.405 ;
+        RECT 5.520 10.795 295.175 288.405 ;
       LAYER met1 ;
-        RECT 1.910 6.160 298.010 288.560 ;
+        RECT 1.910 3.440 298.010 289.640 ;
       LAYER met2 ;
         RECT 2.490 295.720 5.330 298.365 ;
         RECT 6.170 295.720 9.470 298.365 ;
