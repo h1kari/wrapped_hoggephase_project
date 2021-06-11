@@ -10,7 +10,7 @@ project:
 
 # test within caravel
 caravel_test:
-  recipe: "coco_test"
+  recipe: "test"
   directory: "caravel_hpcore_test"
   id: 13
   module_name: "wrapped_hoggephase_project"
