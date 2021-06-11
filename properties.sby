@@ -11,5 +11,5 @@ prep -top wrapped_hoggephase_project
 [files]
 wrapper.v
 properties.v
-hpcore/hoggephase.v
-hpcore/wb_hp.v
+hpcore/src/hoggephase.v
+hpcore/src/wb_hp.v

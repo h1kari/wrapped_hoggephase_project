@@ -6,8 +6,8 @@ set ::env(DESIGN_NAME) wrapped_hoggephase_project
 
 # add your source files here
 set ::env(VERILOG_FILES) "$::env(DESIGN_DIR)/wrapper.v \
-    $::env(DESIGN_DIR)/hpcore/hoggephase.v \
-    $::env(DESIGN_DIR)/hpcore/wb_hp.v"
+    $::env(DESIGN_DIR)/hpcore/src/hoggephase.v \
+    $::env(DESIGN_DIR)/hpcore/src/wb_hp.v"
 
 # target density, change this if you can't get your design to fit
 set ::env(PL_TARGET_DENSITY) 0.4

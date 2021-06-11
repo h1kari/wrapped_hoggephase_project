@@ -101,8 +101,8 @@ module wrapped_hoggephase_project(
         .wbs_dat_o (buf_wbs_dat_o),
 
         // IO Pads
-        .gpio_i    (io_in | buf_la_data_in[19:4]),
-        .gpio_o    (buf_io_out),
+        .gpio_i    (io_in[15:0] | buf_la_data_in[19:4]),
+        .gpio_o    (buf_io_out[15:0]),
         .gpio_enb  () //buf_io_oeb) -- user module drives all pins as output
     );
 
