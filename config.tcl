@@ -20,7 +20,7 @@ set ::env(FP_SIZING) absolute
 set ::env(SYNTH_DEFINES) "MPRJ_IO_PADS=38"
 
 # clock period is ns
-set ::env(CLOCK_PERIOD) "10"
+set ::env(CLOCK_PERIOD) "1.0"
 set ::env(CLOCK_PORT) "wb_clk_i"
 
 # macro needs to work inside Caravel, so can't be core and can't use metal 5
@@ -44,7 +44,7 @@ set ::env(PL_RESIZER_BUFFER_OUTPUT_PORTS) 0
 # ** Code for shimming SDC file to allow for 2nd clock constraint **
 # ******************************************************************
 # clock2 period is ns
-set ::env(CLOCK2_PERIOD) "10"
+set ::env(CLOCK2_PERIOD) "1.0"
 set ::env(CLOCK2_PORT) "user_clock2"
 
 set ::env(BASE_SDC_FILE_SHIM) "$::env(DESIGN_DIR)/shim.sdc"
